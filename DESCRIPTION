@@ -1,0 +1,17 @@
+Package: SRTM
+Type: Package
+Title: Downloads SRTM raster maps and load the relevant ones to R
+Version: 1.0.0
+Author: Javier Saez Gallego
+Maintainer: Javier Saez Gallego <javiersaezgallego@gmail.com>
+Description: Downloads SRTM maps and merge them into a single raster
+    image.
+License: GPL-3
+LazyData: true
+Imports: dplyr,
+    raster,
+    rgdal
+RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown
+Depends: R (>= 2.10)
