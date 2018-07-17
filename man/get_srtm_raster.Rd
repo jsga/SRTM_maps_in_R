@@ -26,8 +26,9 @@ Given a pair of coordinates, find which SRTM file to download. Basically, find a
 \examples{
 # Download and plot maps around Mout Everest
 library(SRTM)
-everest =  get_srtm_raster(lon = 86.922623, lat = 27.986065 ,
-    exdir_srtm_hgt = "SRTM") # Takes a while the first time
+everest =  get_srtm_raster(lon = 86.922623, lat = 27.986065 , n=1, exdir_srtm_hgt = "SRTM")
+ # Takes a while the first time
+ # See downloaded .hgt files in SRTM
 raster::plot(everest)
 
 }

@@ -1,11 +1,11 @@
 Package: SRTM
 Type: Package
-Title: Downloads SRTM Raster Maps and Load the Relevant Ones to R
+Title: Downloads Shuttle Radar Topography Mission (SRTM) Raster Maps and Load the Relevant Ones to R
 Version: 1.0.0
 Author: Javier Saez Gallego
 Maintainer: Javier Saez Gallego <javiersaezgallego@gmail.com>
-Description: Downloads SRTM maps and merge them into a single raster
-    image. Takes as inputs WTG84 coordinates.
+Description: Downloads Shuttle Radar Topography Mission (SRTM 3 v2.1) maps and merge them into a single raster
+    image. Takes as inputs WGS84 coordinates.
 License: GPL-3
 LazyData: true
 Imports: dplyr,

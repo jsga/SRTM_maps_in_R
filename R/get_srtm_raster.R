@@ -12,9 +12,9 @@
 #' @examples
 #' # Download and plot maps around Mout Everest
 #' library(SRTM)
-#' everest =  get_srtm_raster(lon = 86.922623, lat = 27.986065 , n=1, exdir_srtm_hgt = "data-raw/SRTM_maps_everest")
+#' everest =  get_srtm_raster(lon = 86.922623, lat = 27.986065 , n=1, exdir_srtm_hgt = "SRTM")
 #'  # Takes a while the first time
-#'  # See downloaded .hgt files in data-raw/SRTM_maps_everest
+#'  # See downloaded .hgt files in SRTM
 #' raster::plot(everest)
 #'
 #' @export
