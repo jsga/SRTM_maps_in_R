@@ -12,8 +12,9 @@
 #' @examples
 #' # Download and plot maps around Mout Everest
 #' library(SRTM)
-#' everest =  get_srtm_raster(lon = 86.922623, lat = 27.986065 ,
-#'     exdir_srtm_hgt = "SRTM") # Takes a while the first time
+#' everest =  get_srtm_raster(lon = 86.922623, lat = 27.986065 , n=1, exdir_srtm_hgt = "data-raw/SRTM_maps_everest")
+#'  # Takes a while the first time
+#'  # See downloaded .hgt files in data-raw/SRTM_maps_everest
 #' raster::plot(everest)
 #'
 #' @export
@@ -22,11 +23,14 @@
 #' @importFrom  raster merge
 #' @importFrom  raster raster
 #' @import dplyr
-
+#' @importFrom utils globalVariables
 
 
 get_srtm_raster = function(lon, lat, n=1, exdir_srtm_hgt = "SRTM"){
 
+  ## ================
+  #globalVariables(c("NS", "WE"),package='SRTM',add=F)
+  NS=WE=NULL
 
   ## ================
   # Check for the correct coordinates
