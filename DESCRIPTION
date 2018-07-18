@@ -4,8 +4,8 @@ Title: Downloads Shuttle Radar Topography Mission (SRTM) Raster Maps and Load th
 Version: 1.0.0
 Author: Javier Saez Gallego
 Maintainer: Javier Saez Gallego <javiersaezgallego@gmail.com>
-Description: Downloads Shuttle Radar Topography Mission (SRTM 3 v2.1) maps and merge them into a single raster
-    image. Takes as inputs WGS84 coordinates.
+Description: Downloads Shuttle Radar Topography Mission (SRTM 3 v2.1) maps. The tiles are merged them into a single raster
+    image ready for further use in other R programs.
 License: GPL-3
 LazyData: true
 Imports: dplyr,

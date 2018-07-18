@@ -16,7 +16,7 @@ everest =  get_srtm_raster(lon = 86.922623, lat = 27.986065 , n=1, exdir_srtm_hg
 # See downloaded .hgt files in data-raw/SRTM_maps_everest
 raster::plot(everest)
 ```
-The number of tiles downloaded depend on the option *n*. For _n=1_, the center tile is downloaded plus each 1 surrounding tile. So, 9 in total. For _n=2_ the center tile plus 2 surrounding tiles, meaning 25 in total. In general, _(2*n+1)^2_ tiles are downloaded. The graph below shows the output for _n=1_ and _n=2_:
+The number of tiles downloaded depend on the option *n*. For_n=0_ a single map tile is downloaded. For _n=1_, the center tile is downloaded plus each 1 surrounding tile. So, 9 in total. For _n=2_ the center tile plus 2 surrounding tiles, meaning 25 in total. In general, _(2*n+1)^2_ tiles are downloaded. The graph below shows the output for _n=1_ and _n=2_:
 
 ![Output of raster::plot(everest) with n=1 and n=2](data-raw/everest.png)
 
@@ -36,5 +36,12 @@ full_path name_file NS coorNS WE coorWE
 6 https://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Africa/N00E013.hgt.zip   N00E013  N      0  E     13
 ```
 
+The dataset has been gathered by parsing web server, using [this script](https://github.com/jsga/SRTM_maps_in_R/blob/master/data-raw/SRTM_files_info.R).
+
+# To-do list
+
+1. Allow to input a spatial polygon and based on that determine which tiles to download
+2. Write a Vignette
+2. Merge code with raster::getData() function (currently not working)
 
 

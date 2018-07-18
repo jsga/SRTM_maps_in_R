@@ -12,9 +12,9 @@
 #' @examples
 #' # Download and plot maps around Mout Everest
 #' library(SRTM)
-#' everest =  get_srtm_raster(lon = 86.922623, lat = 27.986065 , n=1, exdir_srtm_hgt = "SRTM")
-#'  # Takes a while the first time
-#'  # See downloaded .hgt files in SRTM
+#' everest =  get_srtm_raster(lon = 86.922623, lat = 27.986065 , n=0, exdir_srtm_hgt = "SRTM")
+#' # Takes a while the first time
+#' # See downloaded .hgt files in SRTM
 #' raster::plot(everest)
 #'
 #' @export
@@ -29,7 +29,8 @@
 get_srtm_raster = function(lon, lat, n=1, exdir_srtm_hgt = "SRTM"){
 
   ## ================
-  #globalVariables(c("NS", "WE"),package='SRTM',add=F)
+  # Hacky way of avoiding NOTE from CRAN
+  # See https://stackoverflow.com/questions/8096313/no-visible-binding-for-global-variable-note-in-r-cmd-check/8096882#8096882
   NS=WE=NULL
 
   ## ================
@@ -45,7 +46,7 @@ get_srtm_raster = function(lon, lat, n=1, exdir_srtm_hgt = "SRTM"){
   }
 
   # Check the number of required tiles is positive integer
-  if( ((n %% 1) != 0) | (n <=0)){
+  if( ((n %% 1) != 0) | (n < 0)){
     stop("Parameter 'n' must be a positive integer")
   }
   # END check
@@ -86,7 +87,12 @@ get_srtm_raster = function(lon, lat, n=1, exdir_srtm_hgt = "SRTM"){
   for(i in 1:length(files_final$name_file)){
     r_aux[[i]] = raster(paste0(exdir_srtm_hgt,'/',files_final$name_file[i],".hgt"))
   }
-  srtm_map <- do.call(raster::merge, r_aux)
+  if(n>1){
+    srtm_map <- do.call(raster::merge, r_aux)
+  }else{
+    srtm_map <- r_aux[[1]]
+  }
+
 
   # END. Return meged map.
   return(srtm_map)
