@@ -26,11 +26,13 @@ download_srtm = function(url_file,destfile,exdir_srtm_hgt ="SRTM"){
     # Already exists
     TRUE
   }else{
-    # Download
-    download.file( url = url_file,destfile=destfile,mode="wb")
+    # Temporary location
+    temp_destfile = tempfile("SRTM",tempdir(),'.hgt')
+    # Download temporarily
+    download.file( url = url_file, destfile = temp_destfile,mode="wb")
     # Unzip
-    unzip(destfile,exdir = exdir_srtm_hgt)
-    # Delete zip, keep only .hgt
-    file.remove(destfile)
+    unzip(temp_destfile,exdir = exdir_srtm_hgt)
+    # Delete zip, keep only .hgt. Clean up.
+    file.remove(temp_destfile)
   }
 }
